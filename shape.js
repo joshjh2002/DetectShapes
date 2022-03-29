@@ -1,6 +1,8 @@
 // Classifier Variable
 let classifier;
 
+let imageModelURL = "https://joshjh2002.github.io/DetectShapes/";
+
 // Video
 let video;
 let flippedVideo;
@@ -9,9 +11,7 @@ let label = "";
 
 // Load the model first
 function preload() {
-  classifier = ml5.imageClassifier(
-    "https://joshjh2002.github.io/DetectShapes/model.json"
-  );
+  classifier = ml5.imageClassifier(imageModelURL + "model.json");
 }
 
 function setup() {
