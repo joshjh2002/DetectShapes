@@ -5,7 +5,6 @@ let imageModelURL = "https://joshjh2002.github.io/DetectShapes/";
 
 // Video
 let video;
-let flippedVideo;
 // To store the classification
 let label = "";
 
@@ -32,7 +31,7 @@ function setup() {
   video = createCapture(constraints);
 
   //video = createCapture(VIDEO);
-  video.size(320, 240);
+  video.size(320, 320);
   video.hide();
 
   //flippedVideo = ml5.flipImage(video);
@@ -43,7 +42,7 @@ function setup() {
 function draw() {
   background(0);
   // Draw the video
-  image(flippedVideo, 0, 0);
+  image(video, 0, 0);
 
   // Draw the label
   fill(255);
@@ -54,9 +53,8 @@ function draw() {
 
 // Get a prediction for the current video frame
 function classifyVideo() {
-  flippedVideo = ml5.flipImage(video);
-  classifier.classify(flippedVideo, gotResult);
-  flippedVideo.remove();
+  classifier.classify(video, gotResult);
+  video.remove();
 }
 
 // When we get a result
