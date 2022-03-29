@@ -9,7 +9,9 @@ let label = "";
 
 // Load the model first
 function preload() {
-  classifier = ml5.imageClassifier("model.json");
+  classifier = ml5.imageClassifier(
+    "https://joshjh2002.github.io/DetectShapes/model.json"
+  );
 }
 
 function setup() {
